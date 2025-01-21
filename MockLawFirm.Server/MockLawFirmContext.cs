@@ -33,7 +33,7 @@ namespace MockLawFirm.Server
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	=> optionsBuilder
-		.UseSqlite("Data Source=mocklawfirmNEW.db")
+		.UseSqlite("Data Source=mocklawfirm.db")
 		.UseSeeding((MockLawFirmContext, _) =>
 		{
 			var userManager = MockLawFirmContext.GetService<Microsoft.AspNetCore.Identity.UserManager<ApplicationUser>>();
