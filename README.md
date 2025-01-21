@@ -13,3 +13,6 @@ Usage Instructions:
 1. The database should have been seeded with 2 users (1 admin and 1 non-admin). You should be able to login in with the following credentials for each user to test various app functionality.
 	a. Admin username: "admin@admin.com", Admin password: "Password1!"
 	b. Non-admin username: "user@user.com", Non-admin password: "Password1!"
+
+Running Tests:
+The unit/integration tests live in the 'MockLawForm.Tests' project and can be run in the test explorer.
