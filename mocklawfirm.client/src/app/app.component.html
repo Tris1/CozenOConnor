@@ -1,0 +1,71 @@
+<app-nav (isAdminRole)="isAdminRoleHandler($event)"></app-nav>
+<div>
+
+
+  <table *ngIf="attorneys && isAdminRole">
+    <thead>
+      <tr>
+        <th>Attorney Id</th>
+        <th>Attorney Name</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let attorney of attorneys">
+        <td>{{ attorney.id }}</td>
+        <td>{{ attorney.attorneyName }}</td>
+        <td>{{ attorney.attorneyEmailAddress }}</td>
+        <td>{{ attorney.attorneyPhoneNumber }}</td>
+        <td><button (click)="deleteAttorney(attorney)" type="button" class="btn btn-danger">Delete?</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="attorneys && !isAdminRole">
+    <thead>
+      <tr>
+        <th>Attorney Name</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let attorney of attorneys">
+        <td>{{ attorney.attorneyName }}</td>
+        <td>{{ attorney.attorneyEmailAddress }}</td>
+        <td>{{ attorney.attorneyPhoneNumber }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="initNewAttorney()" *ngIf="isAdminRole && toDisplay">Add New Attorney</button>
+</div>
+
+<app-edit-attorney [attorney]="attorneyToEdit" (attorneysUpdated) ="updateHeroesList($event)" *ngIf="isAdminRole"></app-edit-attorney>
+
+  <!-- modal section -->
+  <ng-template #loginError>
+    <div>
+      <h1>The entered user credentials are not correct. Please try again.</h1>
+    </div>
+  </ng-template>
+  <!--<ng-template #viewUserTemplate>
+    <div class="p-4 text-dark">
+      @if (user) {
+      <p>First Name: {{ user.firstName }}</p>
+      <hr />
+      <p>Last name: {{ user.lastName }}</p>
+      <hr />
+      <p>Body Size: {{ user.bodySize }}</p>
+      <hr />
+      <p>Description: {{ user.description }}</p>
+      }@else{
+      <p>User does not exist</p>
+      }
+    </div>
+    <div class="modalButton mb-3">
+      <button (click)="exitModal()">close</button>
+    </div>
+  </ng-template>-->
+<!--</section>-->

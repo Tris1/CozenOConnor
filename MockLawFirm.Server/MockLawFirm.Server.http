@@ -1,0 +1,6 @@
+@MockLawFirm.Server_HostAddress = http://localhost:5007
+
+GET {{MockLawFirm.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

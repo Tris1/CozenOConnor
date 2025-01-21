@@ -1,0 +1,21 @@
+<div *ngIf="attorney">
+  <div>
+    Name:
+    <input #newAttorneyName [(ngModel)]="attorney.attorneyName" />
+  </div>
+  <div>
+    Email Address:
+    <input #newAttorneyEmail [(ngModel)]="attorney.attorneyEmailAddress" />
+  </div>
+  <div>
+    Phone Number:
+    <input #newAttorneyPhoneNumber [(ngModel)]="attorney.attorneyPhoneNumber" />
+  </div>
+  <button (click)="createAttorney(attorney)" *ngIf="!attorney.id">Add New Attorney</button>
+</div>
+
+<ng-template #createNewAttorneyError>
+  <div>
+    <h1>Could not create new attorney. Please try again.</h1>
+  </div>
+</ng-template>
